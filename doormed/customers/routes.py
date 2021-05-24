@@ -146,14 +146,15 @@ def shop_details(id):
 @app.route('/main/<int:id>/account', methods= ['GET', 'POST'])
 @login_required
 def account(id):
+    shop = []
     user = Register_user.query.filter_by(id = id).first()
     orders = Order.query.filter_by(cust_id = user.id).all()
     if orders:
-        order = Order.query.filter_by(cust_id = user.id).first()
-        ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
+        for order in orders:
+            ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
+            shop.append(ordered_shop)
 
-
-        return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop)
+        return render_template('customers/account.html', user = user, orders1 =zip(orders,shop))
     return render_template('customers/account.html', user = user)    
 
 
