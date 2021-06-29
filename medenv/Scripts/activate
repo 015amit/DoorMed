@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\ak238\Desktop\agamya\Doormed\medenv"
+VIRTUAL_ENV="C:\Users\ak238\Desktop\Clubs\agamya\Doormed\medenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
